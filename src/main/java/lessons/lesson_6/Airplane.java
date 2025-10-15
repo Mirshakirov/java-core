@@ -94,25 +94,4 @@ public class Airplane {
             return null;
         }
     }
-
-    public void showPlaneLayout() {
-        System.out.println("\n=====  AIRPLANE LAYOUT =====");
-
-        for (Seat seat : seats) {
-            String color;
-            if (seat.isBooked()) {
-                color = "\u001B[31m"; // Red
-            } else {
-                color = "\u001B[32m"; // Green
-            }
-
-            String classLabel = seat.getSeatClass() == SeatClass.BUSINESS ? "B" : "E";
-            System.out.printf("%s[%s%02d]\u001B[0m ", color, classLabel, seat.getSeatNumber());
-
-            if (seat.getSeatNumber() % 4 == 0)
-                System.out.println();
-        }
-
-        System.out.println("\nLegend: green available, red booked, B — Business, E — Economy\n");
-    }
 }
