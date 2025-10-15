@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Student extends Person {
-    private String id;
-    private Map<Course, Double> grades = new HashMap<>();
+    private final String id;
+    private final Map<Course, Double> grades = new HashMap<>();
 
     public Student(String name, String email, String id) {
         super(name, email);
@@ -20,10 +20,14 @@ public class Student extends Person {
         grades.get(course);
     }
 
+    public String getId() {
+        return id;
+    }
+
     public String getGrades(){
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<Course, Double> entry : grades.entrySet()) {
-            sb.append(entry.getKey() + " -> " + entry.getValue() + "\n");
+            sb.append(entry.getKey()).append(" -> ").append(entry.getValue()).append("\n");
         }
         return sb.toString();
     }

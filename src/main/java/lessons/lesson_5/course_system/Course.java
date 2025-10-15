@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Course {
-    private String title;
+    private final String title;
     private Teacher teacher;
     private List<Student> students = new ArrayList<>();
-    private AttendanceJournal attendanceJournal = new AttendanceJournal();
+    private final AttendanceJournal attendanceJournal = new AttendanceJournal();
 
     public Course(String title, Teacher teacher) {
         this.title = title;
@@ -35,5 +35,13 @@ public class Course {
     @Override
     public String toString() {
         return title;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 }
