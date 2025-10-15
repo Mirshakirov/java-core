@@ -1,6 +1,6 @@
 package lessons.lesson_5.quiz_system;
 
-public class Player extends Participant{
+public class Player extends Participant {
     private int score = 0;
 
     Player(String name){

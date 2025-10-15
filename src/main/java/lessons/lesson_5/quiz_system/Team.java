@@ -3,7 +3,7 @@ package lessons.lesson_5.quiz_system;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Team extends Participant{
+public class Team extends Participant {
     private List<Player> playersList = new ArrayList<>();
 
     public void addMember(Player player){

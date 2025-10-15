@@ -1,23 +1,15 @@
 package lessons.lesson_5.quiz_system;
 
-public class Player extends Participant{
-    private int score = 0;
+public abstract class Participant {
+    private String name;
 
-    Player(String name){
-        setName(name);
+    public String getName() {
+        return name;
     }
 
-    public int getScore(){
-        return score;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void addScore(int score){
-        this.score += score;
-    }
-
-    @Override
-    public void showInfo() {
-        System.out.println(getName());
-        System.out.println(getScore());
-    }
+    public abstract void showInfo();
 }
