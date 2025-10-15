@@ -1,14 +1,19 @@
 package lessons.lesson_7;
 
 import java.io.*;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Airplane {
     private List<Seat> seats;
     private static final String FILE_PATH = "seats.txt";
+    private LocalDate flightDate;
 
     public Airplane() {
+        this.flightDate = flightDate;
         seats = loadSeats();
         if (seats == null) {
             seats = generateSeats();
@@ -25,6 +30,7 @@ public class Airplane {
     }
 
     public void showAllSeats() {
+        clearExpiredBookings();
         for (Seat seat : seats) {
             System.out.println(seat);
         }
@@ -93,5 +99,19 @@ public class Airplane {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    private void clearExpiredBookings() {
+        LocalDateTime now = LocalDateTime.now();
+        for (Seat seat : seats) {
+            if (seat.getStatus() == SeatStatus.BOOKED && seat.getBookingTime() != null) {
+                Duration diff = Duration.between(seat.getBookingTime(), now);
+                if (diff.toMinutes() > 24) {
+                    seat.cancel();
+                    System.out.println("Booking expired for seat " + seat.getSeatNumber());
+                }
+            }
+        }
+        saveSeats();
     }
 }

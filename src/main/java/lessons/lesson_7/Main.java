@@ -1,11 +1,15 @@
 package lessons.lesson_7;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Airplane airplane = new Airplane();
         Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter flight date (YYYY-MM-DD): ");
+        LocalDate flightDate = LocalDate.parse(scanner.nextLine());
+        Airplane airplane = new Airplane();
+
 
         while (true) {
             System.out.println("\nAIRPLANE BOOKING SYSTEM:");
