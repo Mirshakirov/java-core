@@ -1,4 +1,6 @@
 package lessons.lesson_7;
 
-public class SeatClass {
+enum SeatClass {
+    BUSINESS,
+    ECONOMY
 }
