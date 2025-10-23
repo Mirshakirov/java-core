@@ -45,3 +45,4 @@ bin/
 /.idea/misc.xml
 /.idea/.gitignore
 /.idea/gradle.xml
+/seats.txt
