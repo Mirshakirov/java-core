@@ -1,4 +1,4 @@
-package lessons.lesson_11;
+package lessons.lesson_11.PublisherSubscriber;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -8,8 +8,8 @@ public class Main {
         Queue<String> queue = new LinkedList<>();
         Object lock = new Object();
 
-        Thread publisher = new Thread(new Publisher(queue, lock));
-        Thread subscriber = new Thread(new Subscriber(queue, lock));
+        Publisher publisher = new Publisher(queue, lock);
+        Subscriber subscriber = new Subscriber(queue, lock);
 
         publisher.start();
         subscriber.start();

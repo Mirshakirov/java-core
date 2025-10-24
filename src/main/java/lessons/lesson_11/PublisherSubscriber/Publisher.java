@@ -1,4 +1,4 @@
-package lessons.lesson_11;
+package lessons.lesson_11.PublisherSubscriber;
 
 import java.util.Queue;
 import java.util.Scanner;
